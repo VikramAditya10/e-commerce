@@ -1,36 +1,76 @@
-<!DOCTYPE html>
 <html>
-    <head>
-     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-	  
-	   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-      <!--Import materialize.css-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<style>
-.checked {
-    color: orange;
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src='assets\js\jquery.elevatezoom.js'></script>
+<style>
+	 #gal1 img{border:2px solid white;}
+ 
+ /*Change the colour*/
+ .active img{border:2px solid #333 !important;}
+ .zoom {
+    height: 50%;
+    width: 50%;
+    background-color: powderblue;
 }
-	</style>
-	
-	</head>
-    <body>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span>
+.fancyBox{
+height:550px; 
+width:550px;
+}
+.proImage{
+max-width: 100%;
+    max-height: 100%;
+}
 
+	</style>
+</head>
+<body>
+<div class="row">
+<div class="col-sm-12 fancyBox"><img class="proImage"  id="zoom_03" src="assets/images/product/pro19.jpg" data-zoom-image="assets/images/product/pro19.jpg"/></div>
+</div>
+<br/>
+<div id="gal1" class="row">
+ <div class="col-sm-1">
+  <a href="#"  data-image="assets/images/product/pro19.jpg" data-zoom-image="assets/images/product/pro19.jpg">
+    <img id="img_01" src="assets/images/product/pro19.jpg" width="100px"/>
+  </a>
+</div>
+<div class="col-sm-1">
+  <a href="#" data-image="assets/images/product/pro20.jpg" data-zoom-image="assets/images/product/pro20.jpg">
+    <img id="img_01" src="assets/images/product/pro20.jpg" width="100px"/>
+
+  </a>
+</div>
+<div class="col-sm-1">
+  <a href="#" data-image="assets/images/product/pro21.jpg" data-zoom-image="assets/images/product/pro21.jpg">
+    <img id="img_01" src="assets/images/product/pro21.jpg" width="100px"/>
+
+  </a>
+  </div>
+<div class="col-sm-1">
+  <a href="#" data-image="assets/images/product/pro22.jpg" data-zoom-image="assets/images/product/pro22.jpg">
+    <img id="img_01" src="assets/images/product/pro22.jpg" width="100px"/>
+
+  </a>
+</div>
+</div>
+
+<br />
 </body>
-    </body>
-  </html>
+<script>
+  //initiate the plugin and pass the id of the div containing gallery images
+$("#zoom_03").elevateZoom({gallery:'gal1', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'}); 
+
+//pass the images to Fancybox
+$("#zoom_03").bind("click", function(e) {  
+  var ez =   $('#zoom_03').data('elevateZoom');	
+	$.fancybox(ez.getGalleryList());
+  return false;
+});
+</script>
+
+<script src="assets/js/easyzoom.js"></script>
+	<script>
+
+	</script>
+</html>
