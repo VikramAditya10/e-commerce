@@ -16,11 +16,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">         
 		 <link rel="stylesheet" href="assets/css/Footer-with-button-logo.css">
 		  <link rel="stylesheet" href="assets/css/star.css">
+  <script src='assets\js\jquery.elevatezoom.js'></script>
 
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
@@ -43,6 +40,24 @@
     }
 	.magari{
 	background-image: url("assets/images/logo/puma-logo.png");
+}
+
+ #gal1 img{border:2px solid white;}
+ 
+ /*Change the colour*/
+ .active img{border:2px solid #333 !important;}
+ .zoom {
+    height: 50%;
+    width: 50%;
+    background-color: powderblue;
+}
+.fancyBox{
+height:550px; 
+width:550px;
+}
+.proImage{
+max-width: 100%;
+    max-height: 100%;
 }
   </style>
 </head>
@@ -99,19 +114,60 @@
 <div class="panel-head">
 <ul class="breadcrumb">
     <li><a href="home.html">Home</a></li>
-    <li><a href="#">Products</a></li>
-    <li class="active">All Shoes</li>
+    <li><a href="category.html">Products</a></li>
+    <li ><a href="category.html">All Shoes</a></li>
+	<li class="active"></li>
 </ul>
 </div>
 </div>
 <!------------------------------------>
+<div class="container" id="product-section">
+  <div class="row">
+   <div class="col-md-6">
 <div class="container">    
-<!------------------------------- Category Image--------------------------------->
 
+<div class="row">
+<div class="col-sm-12 fancyBox"><img class="proImage"  id="zoom_03" src="assets/images/product/pro19.jpg" data-zoom-image="assets/images/product/pro19.jpg"/></div>
+</div>
+<br/>
+<div id="gal1" class="row">
+ <div class="col-sm-1">
+  <a href="#"  data-image="assets/images/product/pro19.jpg" data-zoom-image="assets/images/product/pro19.jpg">
+    <img id="img_01" src="assets/images/product/pro19.jpg" width="100px"/>
+  </a>
+</div>
+<div class="col-sm-1">
+  <a href="#" data-image="assets/images/product/pro20.jpg" data-zoom-image="assets/images/product/pro20.jpg">
+    <img id="img_01" src="assets/images/product/pro20.jpg" width="100px"/>
+
+  </a>
+</div>
+<div class="col-sm-1">
+  <a href="#" data-image="assets/images/product/pro21.jpg" data-zoom-image="assets/images/product/pro21.jpg">
+    <img id="img_01" src="assets/images/product/pro21.jpg" width="100px"/>
+
+  </a>
+  </div>
+<div class="col-sm-1">
+  <a href="#" data-image="assets/images/product/pro22.jpg" data-zoom-image="assets/images/product/pro22.jpg">
+    <img id="img_01" src="assets/images/product/pro22.jpg" width="100px"/>
+
+  </a>
+</div>
+</div>
 <!--------------------------------------------------------------------------->
 <hr/>
 
-</div><br>
+</div>
+   </div>
+   <div class="col-md-6">
+   <div class="row">
+   <div class="col-md-12"><h1 style="background-color:black; text-align:center; color:white;">WORSTON TAN</h1></div>
+   </div>
+</div>
+  
+ </div>
+<br>
 <br><br>
 
 <footer id="myFooter" class="container-fluid text-center">
@@ -166,6 +222,14 @@
 </footer>
     </body>
 	<script>
+  //initiate the plugin and pass the id of the div containing gallery images
+$("#zoom_03").elevateZoom({gallery:'gal1', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'}); 
 
+//pass the images to Fancybox
+$("#zoom_03").bind("click", function(e) {  
+  var ez =   $('#zoom_03').data('elevateZoom');	
+	$.fancybox(ez.getGalleryList());
+  return false;
+});
 </script>
   </html>
