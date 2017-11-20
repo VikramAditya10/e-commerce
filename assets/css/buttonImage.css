@@ -1,0 +1,11 @@
+.button-image-bag{
+    line-height: 30px;
+    width:30px;
+    height: 30px;
+    background: transparent url("../images/icon/add-to-shopping-bag.png") no-repeat;    
+}
+.button-image > div {
+    vertical-align: middle;
+    display:inline-block;
+    margin-right: 0.2em;
+}
