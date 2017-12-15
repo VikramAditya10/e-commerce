@@ -1,0 +1,7 @@
+php artisan make:migration product_table --create product
+php artisan make:migration category_table --create category
+php artisan make:migration product_description_table --create product_description
+php artisan make:migration product_to_category_table  --create product_to_category
+php artisan make:migration available_size_table --create available_size
+php artisan make:migration  product_image_table --create product_image_table
+
