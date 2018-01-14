@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ProductDescriptionTable extends Migration
+class CategoryDescriptionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class ProductDescriptionTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_description', function (Blueprint $table) {
-            $table->increments('product_id');
+        Schema::create('category_description',function (Blueprint $table){
+            $table->integer('category_id');
+            $table->tinyInteger('language_id');
             $table->string('name',255);
             $table->text('description');
-            $table->text('tag');
-            $table->text('meta_description');
-            $table->json('technical_specification');
-            $table->timestamps();
+            $table->string('meta_title',255);
+            $table->string('meta_description',255);
+            $table->string('meta_keyword',255);
         });
     }
 
@@ -31,6 +31,6 @@ class ProductDescriptionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_description');
+        Schema::dropIfExists('available_size');
     }
 }

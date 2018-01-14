@@ -18,7 +18,8 @@ description text,
 tag text,
 meta_title varchar(255),
 meta_description varchar(255),
-meta_keyword varchar(255)
+meta_keyword varchar(255),
+technical_specification json
 );
 
 create table cart(
@@ -105,9 +106,10 @@ category_id int(11),
 
 create table available_size(
 product_id int(11),
-size tinyint(2),
+size varchar(255),
 quantity int(10)
 );
+
 create table category_description(
 category_id int(11),
 language_id tinyint,
@@ -119,5 +121,8 @@ meta_keyword varchar(255)
 );
 
 
-
-
+create table product_color_style(
+product_id int(11),
+color varchar(255),
+style varchar(255)
+);

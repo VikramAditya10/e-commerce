@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Trial2 extends Migration
+class ProductColorStyle extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class Trial2 extends Migration
      */
     public function up()
     {
-        Schema::create('hello', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+        Schema::create('product_color_style', function (Blueprint $table) {
+            $table->integer('product_id');
+            $table->string('color',255);
+            $table->string('style',255);
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class Trial2 extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hello');
+        Schema::dropIfExists('product_color_style');
     }
 }

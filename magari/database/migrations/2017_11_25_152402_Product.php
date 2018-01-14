@@ -24,6 +24,7 @@ class Product extends Migration
             $table->decimal('length','15','8');
             $table->decimal('width','15','8');
             $table->tinyInteger('status');
+
             $table->timestamps();
         });
     }

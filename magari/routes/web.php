@@ -16,16 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('/trial',function(){return view('front.frontt');});
-Route::get('/magari',function(){return view('front.home');});
+Route::get('/shop',function(){return view('front.home');});
 Route::resource('nerds','NerdController');
 Route::get('view-records','Admin@index');
 Route::get('/create','Admin@insertform');
 Route::post('/insert','Admin@insert');
-Route::get('/addproduct','Product@insertForm');
-Route::post('/insertproduct','Product@insertProduct');
-Route::get('/viewproducts','Product@viewAllProduct');
+Route::get('/addproduct','admin\Product@insertForm');
+Route::post('/insertproduct','admin\Product@insertProduct');
+Route::get('/viewproducts','admin\Product@viewAllProduct');
 Route::get('/uploadfile',function(){return view('file-upload');});
-Route::get('/addcategory','Category@insertForm');
-Route::post('/insertcategory','Category@insertCategory');
-Route::get('/trial','Category@trial');
+Route::get('/addcategory','admin\Category@insertForm');
+Route::post('/insertcategory','admin\Category@insertCategory');
+Route::get('/trial',function(){return view('layout.front.com.menu');});
+Route::get('/productlist','front\CategoryProductList@trial');
 ?>

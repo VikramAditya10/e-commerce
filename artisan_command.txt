@@ -4,4 +4,10 @@ php artisan make:migration product_description_table --create product_descriptio
 php artisan make:migration product_to_category_table  --create product_to_category
 php artisan make:migration available_size_table --create available_size
 php artisan make:migration  product_image_table --create product_image_table
+php artisan make:controller Product
+php artisan make:controller Category
+php artisan make:migration product_color_style --create product_color_style
+php artisan make:controller front/CatgoryProductList
+php artisan make:controller com/BaseController
+
 
