@@ -126,3 +126,43 @@ product_id int(11),
 color varchar(255),
 style varchar(255)
 );
+
+select 
+category_description.category_id,
+category_description.name, 
+category_description.description,
+category_description.meta_title,
+category_description.meta_description,
+category_description.meta_keyword,
+category.sort_order,
+category.image,
+category.parent_id
+ from category 
+ INNER JOIN category_description ON 
+ category.category_id=category_description.category_id ORDER BY category.sort_order
+
+select category.category_id, category_description.name, category.parent_id from category INNER JOIN category_description ON category.parent_id=category_description.category_id;
+ 
+ 
+ insert into category_description(category_id,language_id,name,description,meta_title,meta_description,meta_keyword)values(0,'0','--none--','none','none','none','none');
+  
+
+select category.category_id,category_description.name as parent_name from category INNER JOIN category_description ON category.parent_id=category_description.category_id
+
+select
+category_description.category_id, 
+p.parent_name,
+category_description.name, 
+category_description.description, 
+category_description.meta_title, 
+category_description.meta_description,
+category_description.meta_keyword,
+category.sort_order,
+category.image,
+category.parent_id
+from (select category.category_id,category_description.name as parent_name from category INNER JOIN category_description ON category.parent_id=category_description.category_id) as p
+INNER JOIN category ON 
+category.category_id=p.category_id
+INNER JOIN category_description ON
+category.category_id=category_description.category_id
+ORDER BY category.sort_order;

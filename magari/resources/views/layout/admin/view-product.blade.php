@@ -1,6 +1,9 @@
 @extends('layout.admin.admin-layout')
 @section('content')
-    <table style="border:solid 1px black;">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+
+
         <tr>
 
             @foreach($arr as $key=>$value)
@@ -10,9 +13,10 @@
         @foreach($products as $product)
             <tr>
                 @foreach($product as $val)
-                    <td style="border:solid 1px #39ee1a;">{{ $val }}</td>
+                    <td>{{ $val }}</td>
                 @endforeach
             </tr>
         @endforeach
-    </table>
+        </table>
+    </div>
     @endsection

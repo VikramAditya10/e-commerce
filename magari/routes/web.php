@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/trial',function(){return view('front.frontt');});
+Route::get('/trial','Category@trial');
 Route::get('/shop',function(){return view('front.home');});
 Route::resource('nerds','NerdController');
 Route::get('view-records','Admin@index');
@@ -27,6 +27,9 @@ Route::get('/viewproducts','admin\Product@viewAllProduct');
 Route::get('/uploadfile',function(){return view('file-upload');});
 Route::get('/addcategory','admin\Category@insertForm');
 Route::post('/insertcategory','admin\Category@insertCategory');
-Route::get('/trial',function(){return view('layout.front.com.menu');});
+Route::get('/trial','admin\Category@trial');
 Route::get('/productlist','front\CategoryProductList@trial');
+Route::get('/updatecategory','admin\Category@viewAllCategories');
+Route::get('/deletecategory','admin\Category@deleteCategory');
+Route::post('/submitupdatecategory','admin\Category@updateCategory');
 ?>
